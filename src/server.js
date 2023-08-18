@@ -1,9 +1,11 @@
 import express from "express";
 import "dotenv/config"
 import { sequelize } from "./config/database.js";
+import router from "./routers/user.router.js";
 
 
 const app = express();
+app.use(express.json())
 
 
 
@@ -15,7 +17,7 @@ try {
 }
 
 
-
+app.use(router)
 let port = process.env.PORT || 5060
 let host = process.env.HOST || "localhost"
 
