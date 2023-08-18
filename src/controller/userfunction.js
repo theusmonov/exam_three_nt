@@ -1,12 +1,18 @@
 import { User } from "../models/user.model.js";
 
-export const USER_CREAT = (req, res) => {
+export const USER_CREAT = async (req, res) => {
     try {
-        const data = User.create({
-
-        })
+        const { avatarka, username, first_name, second_name, description } = req.body;
+        const data = await User.create({
+            avatarka,
+            username,
+            first_name,
+            second_name,
+            description
+        });
         return res.send(data)
     } catch (err) {
-        console.log(err.message);
+        console.error("Boshqaruvdagi xatolik:", err);
+        res.status(500).send("Server Xatosi");
     }
 }

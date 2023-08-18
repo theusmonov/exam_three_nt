@@ -33,4 +33,4 @@ User.init({
 
 })
 
-await sequelize.sync({alter: true})
+// await sequelize.sync({alter: true})
