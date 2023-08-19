@@ -23,13 +23,11 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use("/*", (req, res) => {
-    res.send({
-        status: 404,
-        message: req.baseUrl + " not found"
-    })
-})
+
 app.use(express.static(path.join(process.cwd(), "upload")))
+
+
+
 
 app.use(router)
 let port = process.env.PORT || 5060

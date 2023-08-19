@@ -1,7 +1,7 @@
-import { DataTypes, Model } from "sequelize";
+import { DataTypes, Model} from "sequelize";
 import { sequelize } from "../config/database.js";
 
-export class User extends Model {}
+export class User extends Model { }
 
 User.init({
     id: {
@@ -10,7 +10,7 @@ User.init({
         primaryKey: true
     },
     avatarka: {
-       type: DataTypes.TEXT 
+        type: DataTypes.TEXT,
     },
     username: {
         type: DataTypes.STRING,
@@ -20,17 +20,18 @@ User.init({
         type: DataTypes.STRING,
     },
     second_name: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
     },
     description: {
         type: DataTypes.STRING
+    },
+    password: {
+        type: DataTypes.STRING
     }
-
 }, {
-    sequelize,
-    tableName: "users",
+    sequelize, 
+    tableName: "user_table",
     timestamps: true
-
 })
 
-// await sequelize.sync({alter: true})
+await sequelize.sync({alter: true})

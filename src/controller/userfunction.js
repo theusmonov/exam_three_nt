@@ -1,10 +1,11 @@
 import { jwtSign } from "../lib/auth.jwt.js";
-import { User } from "../models/user.model.js";
+import { User } from "../model/user.model.js";
+
 
 export const USER_CREAT = async (req, res) => {
     try {
         const { filename } = req.file
-        const { username, first_name, second_name, description } = req.body;
+        const { username, first_name, second_name, description, password } = req.body;
 
         let checkUser = await User.findAll({
             where: {
@@ -24,6 +25,7 @@ export const USER_CREAT = async (req, res) => {
                 first_name,
                 second_name,
                 description,
+                password
             });
             return res.status(201).send({
                 data,
