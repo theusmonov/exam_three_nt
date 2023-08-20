@@ -29,7 +29,7 @@ export const schema = Joi.object({
     .required()
     .messages({
         "string.min": "password elementlari 4 tadan kam",
-        "string.max": "username elementlari 4 tadan ko'p",
+        "string.max": "password elementlari 4 tadan ko'p",
         "any.required": "password talab qilinadi"
     })
 })

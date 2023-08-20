@@ -1,4 +1,4 @@
-import { jwtSign } from "../lib/auth.jwt.js";
+import { jwtSign } from "../lib/jwtToken.js";
 import { User } from "../model/user.model.js";
 
 
@@ -15,10 +15,10 @@ export const USER_CREAT = async (req, res) => {
         if (checkUser.length > 0) {
             return res.send({
                 status: 500,
-                message: "Bu username allaqachon band qilingan"
+                message: "Bu username allaqachon band qilingan :("
             })
         } else {
-            const token = jwtSign.sign({username})
+            const token = jwtSign.sign({username, password})
             const data = await User.create({
                 avatarka: `user_photo_${filename}`,
                 username,
@@ -30,7 +30,7 @@ export const USER_CREAT = async (req, res) => {
             return res.status(201).send({
                 data,
                 status: 201,
-                message: "Username telegramda yaratildi",
+                message: "Username telegramda yaratildi :)",
                 token,
             });
             
@@ -40,3 +40,7 @@ export const USER_CREAT = async (req, res) => {
         res.status(500).send("Server Xatosi");
     }
 }
+
+
+
+

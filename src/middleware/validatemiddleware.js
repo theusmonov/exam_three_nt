@@ -8,7 +8,7 @@ export default (option) => {
                     message: error.message
                 })
             }
-            let resalt = value
+            req.resalt = value
             next()
         } catch (err) {
             console.log(err.message);

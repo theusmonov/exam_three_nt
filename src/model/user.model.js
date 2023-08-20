@@ -7,14 +7,17 @@ User.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
+        unique: true
     },
     avatarka: {
         type: DataTypes.TEXT,
     },
     username: {
         type: DataTypes.STRING,
-        allowNull: false
+        primaryKey: true,
+        unique: true,
+        allowNull: false,
     },
     first_name: {
         type: DataTypes.STRING,
@@ -32,6 +35,6 @@ User.init({
     sequelize, 
     tableName: "user_table",
     timestamps: true
-})
+}) 
 
 await sequelize.sync({alter: true})
